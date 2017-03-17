@@ -12,6 +12,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 group :test do
+  gem 'factory_girl_rails', '~> 4.5'
   gem 'selenium-webdriver', '~> 2.35.1'
   gem 'capybara', '~> 2.2.0'
 end
