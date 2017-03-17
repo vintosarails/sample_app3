@@ -4,15 +4,16 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'bcrypt', '~> 3.1', '>= 3.1.3'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
-  gem 'rspec-rails', '~> 2.13.1'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'web-console', '~> 2.0'
 end
 group :test do
   gem 'selenium-webdriver', '~> 2.35.1'
-  gem 'capybara', '~> 2.1.0'
+  gem 'capybara', '~> 2.2.0'
 end
 gem 'test-unit'
 # Use SCSS for stylesheets
