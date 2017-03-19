@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  resources :pins do
+    member do
+      put "like", to: "pins#upvote"
+    end
+  end
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  root  'static_pages#home'
+
+  root  'pins#index'
+  #root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

@@ -4,10 +4,14 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'masonry-rails', '~> 0.2.4'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'bcrypt', '~> 3.1', '>= 3.1.3'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'jquery-turbolinks', '~> 2.1'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
@@ -22,6 +26,8 @@ end
 gem 'test-unit'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'simple_form', '~> 3.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 2.1.1'
 # Use CoffeeScript for .coffee assets and views
