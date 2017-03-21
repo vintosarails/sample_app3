@@ -5,5 +5,10 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <% if @user.pins.any? %>
+      <h3>Пинов (<%= @user.pins.count %>)</h3>
+      <%= render @pins %>
+      <% end %>
+
   </div>
 </div>

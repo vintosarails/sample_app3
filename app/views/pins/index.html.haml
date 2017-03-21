@@ -1,6 +1,15 @@
 .row
-	.col-md-6.col-md-offset-3
-	%h1 Добро пожаловать
+	.jumbotron.center
+		- if signed_in?
+			%h1 Добро пожаловать на GoodDays - 
+			%h1 Лучшие идеи для путешествий
+		- else
+			%h1 Добро пожаловать на GoodDays:
+			%h1 "Идеи для путешествий"
+			Для того чтобы выложить идею нужно
+			= link_to "Войти", signin_path,   class: "btn btn-primary btn-sm"
+			или
+			= link_to "Зарегестрироваться", signup_path,   class: "btn btn-primary btn-sm"
 	#pins.transitions-enabled
 		- @pins.each do |pin|
 			.box.panel.panel-default

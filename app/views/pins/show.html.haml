@@ -10,7 +10,7 @@
 				.row
 					.col-md-6
 						%p.user
-							Submitted by
+							Придумал
 							= @pin.user.email
 					.col-md-6
 						.btn-group.pull-right
@@ -18,5 +18,5 @@
 								%span.glyphicon.glyphicon-heart
 								= @pin.get_upvotes.size
 								- if @pin.user == current_user
-									= link_to "Edit", edit_pin_path, class: "btn btn-default"
-									= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+									= link_to "Редактировать", edit_pin_path, class: "btn btn-default"
+									= link_to "Удалить", pin_path, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-default"
