@@ -10,6 +10,7 @@ before_action :admin_user,     only: :destroy
   def show
   	@user = User.find(params[:id])
     @pins = @user.pins(page: params[:page])
+    @user_pins = @user.pins
   end
 
   def new
@@ -69,6 +70,8 @@ before_action :admin_user,     only: :destroy
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
+    
 
 
 end

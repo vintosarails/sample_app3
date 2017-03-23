@@ -1,14 +1,16 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-12">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
       <% if @user.pins.any? %>
-      <h3>Пинов (<%= @user.pins.count %>)</h3>
+      <h3>Все идеи <%= @user.name %> (<%= @user.pins.count %>)</h3>
       <%= render @pins %>
       <% end %>
-
+      <% @user_pins.each do |pin| %>
+        <%= link_to pin.title, pin_path(pin) %>
+      <% end %>  
   </div>
 </div>

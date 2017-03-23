@@ -1,4 +1,4 @@
-.row
+.row 
 	.jumbotron.center
 		- if signed_in?
 			%h1 Добро пожаловать на GoodDays - 
@@ -10,6 +10,7 @@
 			= link_to "Войти", signin_path,   class: "btn btn-primary btn-sm"
 			или
 			= link_to "Зарегестрироваться", signup_path,   class: "btn btn-primary btn-sm"
+	-#%section.col-md-11	
 	#pins.transitions-enabled
 		- @pins.each do |pin|
 			.box.panel.panel-default
@@ -17,5 +18,28 @@
 				.panel-body
 					%h2= link_to pin.title, pin
 					%p.user
-					Submitted by
-					= pin.user.email
+					Придумал
+					= pin.user.name
+	-#%aside.col-md-1
+		-#%ul.list-group.submenu
+			-#%li.list-group-item asdsad
+			-#%li.list-group-item asdsad
+			-#%li.list-group-item asdsad
+		-#.panel.panel-primary
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+			-#%p asd
+
+			-#row.main
+
