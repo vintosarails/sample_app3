@@ -166,6 +166,13 @@ p {
 .navbar{
   height: 50px;
 }
+.navbar-nav{
+  li{
+    a{
+      padding-bottom: 10px; //отступ выпадающее меню "Профиль"
+    }
+  }
+}
 
 /* footer */
 
@@ -300,44 +307,9 @@ textarea {
   }
 }
 
-/*
-container {
-  //max-width: 1280px;
-  //padding: 0px;
-  .row.main {
-    margin-left: -100px; 
-    width: 125%;
-    .jumbotron {
-      margin-left: 8px;
-      padding-top: 20px;
-      height: 240px;
-     background-image: url(1111.jpg);
-     h1 {
-        color: #fff;
-     }
-    }
-    .col-md-11{
-      width: 77.9%;
-      overflow-y: hidden; // hide vertical
-      overflow-x: hidden; // hide horizontal
-
-      padding: 0px;
-      .transition-enabled{
-        overflow-y: hidden; // hide vertical
-        overflow-x: hidden; // hide horizontal
-        margin: 0px;
-      }
-    }
-    .col-md-1{
-      margin-top: 8px;
-      width: 22.1%;
-      padding: 0px;
-      }
-  }
-}
-*/
+//Профиль
 .profile{
-  font-size: 24px;
+  font-size: 25px;
   word-wrap: break-word;
 }
 .user_show{
