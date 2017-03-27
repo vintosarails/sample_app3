@@ -1,8 +1,8 @@
-.row 
+.row
 	.jumbotron.center
 		- if signed_in?
 			%h1 Добро пожаловать на GoodDays - 
-			%h1 Лучшие идеи для путешествий
+			%h1 Идеи для путешествий
 		- else
 			%h1 Добро пожаловать на GoodDays:
 			%h1 "Идеи для путешествий"
@@ -10,7 +10,27 @@
 			= link_to "Войти", signin_path,   class: "btn btn-primary btn-sm"
 			или
 			= link_to "Зарегестрироваться", signup_path,   class: "btn btn-primary btn-sm"
-	-#%section.col-md-11	
+	-#%section.col-md-11
+	.container.main_menu
+		%row
+			.col-md-6.col-md-offset-3
+				%ul
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link						
 	#pins.transitions-enabled
 		- @pins.each do |pin|
 			.box.panel.panel-default
@@ -18,8 +38,12 @@
 				.panel-body
 					%h2= link_to pin.title, pin
 					%p.user
-					Придумал
-					= pin.user.name
+					Отправлено
+					= link_to pin.user.name, pin.user
+				.btn-group.pull-right
+					= link_to like_pin_path(pin), method: :put, class: "btn btn-default" do
+						%span.glyphicon.glyphicon-heart
+						= pin.get_upvotes.size
 	-#%aside.col-md-1
 		-#%ul.list-group.submenu
 			-#%li.list-group-item asdsad

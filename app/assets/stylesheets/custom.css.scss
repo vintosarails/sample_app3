@@ -31,7 +31,7 @@ html {
 
 body {
   background: #E9E9E9;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 section {
@@ -51,7 +51,6 @@ section {
 
 
 .gravatar {
-  float: left;
   margin-right: 10px;
 }
 
@@ -194,7 +193,15 @@ footer {
   }
 }
 
-
+.main_menu {
+  margin-top: 15px;
+  ul{
+    li{
+      margin-right: 30px;
+      float: left;
+    }
+  }
+}
 
 
 #pins {
@@ -229,11 +236,17 @@ footer {
 
 #edit_page {
   .current_image {
+
     img {
+      max-width: 720px;
       display: block;
       margin: 20px 0;
     }
   }
+}
+
+.panel{
+    margin-top: 20px;
 }
 
 #pin_show {
@@ -277,7 +290,11 @@ textarea {
 
 
 .jumbotron{
-  background-image: url(1111.jpg);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0px;
+  background-image: url(222.jpg);
+  //background: #5c5c5c;
   h1{
     color: #fff;
   }
@@ -320,5 +337,14 @@ container {
 }
 */
 .profile{
+  font-size: 24px;
   word-wrap: break-word;
+}
+.user_show{
+  
+}
+.gravatar_1{
+  margin-top: 15px;
+}
+.user_name{
 }

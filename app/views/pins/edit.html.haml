@@ -1,10 +1,11 @@
-.row
-	#edit_page.col-md-8.col-md-offset-2
-		.panel.panel-default
-			.panel-heading
-				%h1 Редактировать ИДЕЮ
-			.panel-body
-				.current_image
-					%strong.center Current Image
-					= image_tag @pin.image.url
-				= render 'form'
+.container
+	.row.pin_edit
+		#edit_page.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-heading
+					%h1 Редактирование идеи
+				.panel-body
+					.current_image
+						%strong.center Текущее изображение
+						= image_tag @pin.image.url
+					= render 'form'

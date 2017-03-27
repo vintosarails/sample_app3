@@ -2,7 +2,6 @@
 
 <div class="jumbotron center">
 	<div class="container">
-	</div>
 	<% if signed_in? %>
   		<h1>Добро пожаловать </h1>
  		<h2>
@@ -19,7 +18,5 @@
   		</h2>	
   		<%= link_to "Sign up now!", signup_path, class: "btn btn-primary btn-lg" %>
   	<% end -%>
-
+  </div>
 </div>
-
-<%= link_to image_tag("rails.jpg", alt: "Rails"), 'http://rubyonrails.org/' %>
