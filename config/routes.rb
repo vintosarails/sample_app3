@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :pins do
     member do
       put "like", to: "pins#upvote"
+      put "dislike", to: "pins#downvote"
     end
+    resources :comments
   end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

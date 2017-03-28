@@ -11,15 +11,31 @@
 					.row
 						.col-md-6
 							%p.user
-								Отправлено
 								= link_to @pin.user.name, @pin.user
+								= time_ago_in_words(@pin.created_at) 
+								назад
 						.col-md-6
 							.btn-group.pull-right
-								= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do
-									%span.glyphicon.glyphicon-heart
+								= link_to like_pin_path(@pin), method: :put, class: "btn btn-default btn" do
+									%span.glyphicon.glyphicon-thumbs-up
 									= @pin.get_upvotes.size
+								= link_to dislike_pin_path(@pin), method: :put, class: "btn btn-default" do
+									%span.glyphicon.glyphicon-thumbs-down
+									= @pin.get_downvotes.size
 									- if @pin.user == current_user
 										= link_to "Редактировать", edit_pin_path, class: "btn btn-default"
 										= link_to "Удалить", pin_path, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-default"
+			%h3.comments_title
+				Комментарии (
+				= @pin.comments.count
+				)
+			#comments
+				= render :partial => @pin.comments
+			- if signed_in?
+				= simple_form_for [@pin, Comment.new] do |f|
+					.field
+						= f.text_area :body, class: "form_control"
+					%br
+					= f.submit "Добавить комментарий", class: "btn btn-primary", :id => "btn_comments"
 
 

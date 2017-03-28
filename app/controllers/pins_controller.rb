@@ -49,6 +49,11 @@ class PinsController < ApplicationController
 		@pin.upvote_by current_user
 		redirect_to :back
 	end
+	def downvote
+		#@pin = Pin.find(params[:id])
+		@pin.downvote_by current_user
+		redirect_to :back
+	end
 
 	private
 
