@@ -1,0 +1,56 @@
+.row
+	.jumbotron.center
+		- if signed_in?
+			%h1 Добро пожаловать на GoodDays - 
+			%h1 Идеи для путешествий
+		- else
+			%h1 Добро пожаловать на GoodDays:
+			%h1 "Идеи для путешествий"
+			Для того чтобы выложить идею нужно
+			= link_to "Войти", signin_path,   class: "btn btn-primary btn-sm"
+			или
+			= link_to "Зарегистрироваться", signup_path,   class: "btn btn-primary btn-sm"
+	-#%section.col-md-11
+	.container.main_menu
+		%row
+			.col-md-6.col-md-offset-3
+				%ul
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link
+					%li
+						%a{:href => "#"} Link						
+	#pins.transitions-enabled
+		- @pins.each do |pin|
+			.box.panel.panel-default
+				= link_to (image_tag pin.image.url), pin
+				.panel-body
+					%h2= link_to pin.title, pin
+					%p.user
+					.main-info
+						= gravatar_rof pin.user, size: 40 
+						= link_to pin.user.name, pin.user
+						= time_ago_in_words(pin.created_at) 
+						назад
+				.btn-group.pull-left
+					= link_to like_pin_path(pin), method: :put, class: "btn btn-default btn-sm" do
+						%span.glyphicon.glyphicon-thumbs-up
+						= pin.get_upvotes.size
+					= link_to dislike_pin_path(pin), method: :put, class: "btn btn-default btn-sm" do
+						%span.glyphicon.glyphicon-thumbs-down
+						= pin.get_downvotes.size
+				.comments
+					%span.glyphicon.glyphicon-comment
+					= pin.comments.count
+

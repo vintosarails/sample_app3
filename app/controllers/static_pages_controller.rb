@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def top_ideas
+  	@pins = Pin.all.order(:cached_votes_score => :desc)
+  end
 end
