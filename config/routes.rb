@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :comments
   resources :pins do
+    collection do
+      get 'search'
+    end  
     member do
       put "like", to: "pins#upvote"
       put "dislike", to: "pins#downvote"

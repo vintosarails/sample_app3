@@ -2,6 +2,14 @@ class PinsController < ApplicationController
 	before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   	before_action :signed_in_user, only: [:edit, :update]
 	
+	def search
+		if params[:search].present?
+			@pins = Pin.search(params[:search])
+		else
+			@pins = Pin.all	
+		end
+	end	
+
 	def index
 		@pins = Pin.all.order("created_at DESC")
 		#@user = User.find params[:user_id]

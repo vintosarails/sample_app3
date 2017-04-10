@@ -139,6 +139,21 @@ p {
 
 
 /* header */
+#search_bar{
+  margin-right: 0px;
+}
+
+#search_field{
+  border: 0px;
+  color: rgba(255, 255, 255, 0.74902);
+  background-color: RGB(60, 60, 60);
+  min-height: 30px;
+}
+
+#button_search{
+  width: 65px;;
+  margin-bottom: 15px;
+}
 
 #logo {
   //margin-left: -100px;
@@ -148,7 +163,7 @@ p {
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 11px;
+  padding-top: 10px;
   font-weight: bold;
   
   &:hover {
