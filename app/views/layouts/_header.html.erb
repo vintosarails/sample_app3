@@ -8,7 +8,7 @@
           <li>
             <%= form_tag search_pins_path, method: :get, class: "navbar-form", id: "search_bar",  role: "search" do %>
             <%= text_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control", id: "search_field" %>
-            <%= submit_tag "Найти", name: nil, class:"btn btn-default", id: "button_search" %>
+            <%#= submit_tag "Найти", name: nil, class:"btn btn-default", id: "button_search" %>
           <% end %>
           </li>  
           <li><%= link_to "Топ идей", top_ideas_path %></li>
