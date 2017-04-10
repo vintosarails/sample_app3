@@ -140,14 +140,17 @@ p {
 
 /* header */
 #search_bar{
-  margin-right: 0px;
+  float: left;
+  margin-top: 10px;
+  //margin-right: 0px;
 }
 
 #search_field{
+
+  //min-width: 5%;
   border: 0px;
   color: rgba(255, 255, 255, 0.74902);
   background-color: RGB(60, 60, 60);
-  min-height: 30px;
 }
 
 #button_search{
@@ -172,16 +175,19 @@ p {
   }
 }
 .logo_image{
-    left: -210px;
+  float: left;
+    left: 0px;
     position: relative;
     top: 3px;
     z-index: 10;
 }
 
 .navbar{
+ float: left;
   height: 50px;
 }
 .navbar-nav{
+  float: left;
   li{
     a{
       padding-bottom: 10px; //отступ выпадающее меню "Профиль"
@@ -216,6 +222,7 @@ footer {
 }
 
 .main_menu {
+
   margin-top: 15px;
   ul{
     li{
