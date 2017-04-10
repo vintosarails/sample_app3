@@ -4,8 +4,8 @@
 			%h1 Добро пожаловать на GoodDays - 
 			%h1 Идеи для путешествий
 		- else
-			%h1 Добро пожаловать на GoodDays:
-			%h1 "Идеи для путешествий"
+			%h1 Добро пожаловать на GoodDays -
+			%h1 Идеи для путешествий
 			Для того чтобы выложить идею нужно
 			= link_to "Войти", signin_path,   class: "btn btn-primary btn-sm"
 			или
@@ -15,22 +15,9 @@
 		%row
 			.col-md-6.col-md-offset-3
 				%ul
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link
-					%li
-						%a{:href => "#"} Link						
+					-#%li
+						-#%a{:href => "#"} Link
+					
 	#pins.transitions-enabled
 		- @pins.each do |pin|
 			.box.panel.panel-default

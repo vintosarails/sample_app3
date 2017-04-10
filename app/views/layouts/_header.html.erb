@@ -11,11 +11,10 @@
       <nav>
         <ul class="nav navbar-nav pull-right">
           <li><%= link_to "Топ идей", top_ideas_path %></li>
-          <li><%= link_to "Блоги" %></li>
+          <li><%#= link_to "Блоги" %></li>
           <% if signed_in? %>
             <li><%#= link_to "Моя лента" %></li>
             <li><%= link_to "Новая идея", new_pin_path %></li>
-            <li><%= link_to "Юзеры", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= gravatar_rof current_user %> <b class="caret"></b>
@@ -23,6 +22,7 @@
               <ul class="dropdown-menu">
                 <li><a>Вы вошли как </br> <strong><%= current_user.name %></strong></a></li>
                 <li class="divider"></li>
+                <li><%= link_to "Юзеры", users_path %></li>
                 <li><%= link_to "Профиль", current_user %></li>
                 <li><%= link_to "Помощь", help_path %></li>
                 <li class="divider"></li>
