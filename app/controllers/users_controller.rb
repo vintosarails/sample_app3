@@ -4,7 +4,7 @@ before_action :correct_user,   only: [:edit, :update]
 before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], :per_page => 10)
   end
 
   def show
@@ -19,7 +19,7 @@ before_action :admin_user,     only: :destroy
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+    flash[:success] = "Пользователь удален."
     redirect_to users_url
   end
 
@@ -27,7 +27,7 @@ before_action :admin_user,     only: :destroy
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Добро пожаловать на GoodiDeas!"
       redirect_to @user
     else
       render 'new'
@@ -41,7 +41,7 @@ before_action :admin_user,     only: :destroy
   def update
     # @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Профиль обновлен."
       redirect_to @user
     else
       render 'edit'
@@ -58,7 +58,7 @@ before_action :admin_user,     only: :destroy
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, warning: "Please sign in."
+        redirect_to signin_url, warning: "Пожалуйста, выполните вход."
       end
     end
 

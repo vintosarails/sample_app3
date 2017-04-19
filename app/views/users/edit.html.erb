@@ -1,4 +1,4 @@
-<% provide(:title, "Edit user") %>
+<% provide(:title, "Редактирование профиля") %>
 <div class="container">
 <h1>Редактирование профиля</h1>
 <div class="row">
@@ -8,11 +8,11 @@
 
       <div class="form-group">
           <%= f.label :Имя %>
-          <%= f.text_field :name, class: "form-control", :autofocus => true %>
+          <%= f.text_field :name, class: "form-control", autofocus: true %>
       </div>
       <div class="form-group">
         <%= f.label :Почта %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :Пароль %>

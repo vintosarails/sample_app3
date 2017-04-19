@@ -4,9 +4,12 @@
     <div class="col-md-3">
       <div class="gravatar_1"><%= gravatar_for @user %></div>
       <p class="user_name"><%= @user.name %></p>
+      <% if signed_in? %>
+      <%= link_to "Редактировать профиль", edit_user_path(current_user), class: "btn btn-default" %>
+      <% end %>
     </div>
     <div class="col-md-9">
-      <h3 class="user_show">Все идеи <%= @user.name %> (<%= @user.pins.count %>)</h3>
+      <h3 class="user_show">Все идеи <%#= @user.name %> (<%= @user.pins.count %>)</h3>
       <% if @user.pins.any? %>
         <%= render @pins %>
       <% end %> 

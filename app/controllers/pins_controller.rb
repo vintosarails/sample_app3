@@ -30,7 +30,7 @@ class PinsController < ApplicationController
 		@pin = current_user.pins.build(pin_params)
 
 		if @pin.save
-			redirect_to @pin, success: "Successfuly created new pin"
+			redirect_to @pin, success: "Идея была успешна создана!"
 		else
 			render 'new'
 		end
@@ -41,7 +41,7 @@ class PinsController < ApplicationController
 
 	def update
 		if @pin.update(pin_params)
-			redirect_to @pin, success: "Pin was successfully updated"
+			redirect_to @pin, success: "Идея была успешно обновлена!"
 		else
 			render 'edit'
 		end
@@ -70,7 +70,7 @@ class PinsController < ApplicationController
 	end
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      redirect_to signin_url, notice: "Пожалуйста, выполните вход." unless signed_in?
     end
 
 	def find_pin

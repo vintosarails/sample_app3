@@ -3,14 +3,15 @@
   <div class="navbar-inner">
     <div class="container">
       <a href="/"><%= image_tag 'logo_s2.png', :class => "logo_image" %></a>
-      <%= link_to "gooddays", root_path, id: "logo" %>
+      <%= link_to "GoodiDeas", root_path, id: "logo" %>
       <%= form_tag search_pins_path, method: :get, class: "navbar-form", id: "search_bar",  role: "search" do %>
         <%= text_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control", id: "search_field" %>
             <%#= submit_tag "Найти", name: nil, class:"btn btn-default", id: "button_search" %>
       <% end %>
       <nav>
         <ul class="nav navbar-nav pull-right">
-          <li><%= link_to "Топ идей", top_ideas_path %></li>
+        
+          <li><%= link_to "Лучшее", top_ideas_path %></li>
           <li><%#= link_to "Блоги" %></li>
           <% if signed_in? %>
             <li><%#= link_to "Моя лента" %></li>

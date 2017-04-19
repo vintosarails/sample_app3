@@ -12,6 +12,6 @@ class StaticPagesController < ApplicationController
   end
 
   def top_ideas
-  	@pins = Pin.all.order(:cached_votes_score => :desc)
+  	@pins = Pin.all.order(:cached_votes_up => :desc)
   end
 end
