@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_many :pins
+  has_many :favorite_pins
+  has_many :favorites, through: :favorite_pins, source: :pin 
+
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 40 }

@@ -3,7 +3,10 @@ class Pin < ActiveRecord::Base
 	acts_as_votable
 
 	belongs_to :user
+
 	has_many :comments
+	has_many :favorite_pins 
+  	has_many :favorited_by, through: :favorite_pins, source: :user
 
 	has_attached_file :image, styles: {  }
  	#has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

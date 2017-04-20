@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-	before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+	before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :favorite]
   	before_action :signed_in_user, only: [:edit, :update]
 	
 	def search
@@ -17,6 +17,7 @@ class PinsController < ApplicationController
 	end
 
 	def show
+		@favorited = FavoritePin.find_by(user: current_user, pin: @pin).present?
 		#@user = User.find_by_username(params[:id])
 		#@pin = Pin.find(params[:id])
 		#@pins_user = @pins.user
@@ -62,6 +63,21 @@ class PinsController < ApplicationController
 		@pin.downvote_by current_user
 		redirect_to :back
 	end
+
+	def favorite
+		@pin = Pin.find(params[:id])
+		#@favorites = current_user.favorites.all
+    	type = params[:type]
+    	if type == "favorite"
+      		current_user.favorites << @pin
+      		redirect_to :back, success: "#{@pin.title} успешно добавлено в избранное"
+    	elsif type == "unfavorite"
+      		current_user.favorites.delete(@pin)
+      		redirect_to :back, success: "#{@pin.title} успешно убрано из избранного"
+    	else
+      		redirect_to :back, danger: "Ошибка"
+    	end
+  	end
 
 	private
 

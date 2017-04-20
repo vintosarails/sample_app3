@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "pins#upvote"
       put "dislike", to: "pins#downvote"
+      put :favorite
     end
     resources :comments
   end
