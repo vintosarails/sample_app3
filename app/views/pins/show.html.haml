@@ -25,10 +25,11 @@
 									- if @pin.user == current_user
 										= link_to "Редактировать", edit_pin_path, class: "btn btn-default"
 										= link_to "Удалить", pin_path, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-default"
-										-# if @favorited 
-											=# link_to "Убрать из избранного", favorite_pin_path(@pin, type: "unfavorite"), method: :put, class: "btn btn-default", :id => "btn_favorite"
-										-# else
-											=# link_to "Добавить в избранное", favorite_pin_path(@pin, type: "favorite"), method: :put, class: "btn btn-default", :id => "btn_favorite"
+									- if signed_in?	
+										- unless current_user.favorite_pins.exists?(id: @pin.id)
+											= link_to 'Добавить в избранное', favorite_pins_path(pin_id: @pin), method: :post, class: "btn btn-default", :id => "btn_favorite"
+										- else
+											= link_to 'Убрать из избранного',favorite_pin_path(@pin), method: :delete, class: "btn btn-default", :id => "btn_favorite"
 			%h3.comments_title
 				Комментарии (
 				= @pin.comments.count

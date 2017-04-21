@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
+
   resources :pins do
     collection do
       get 'search'
@@ -10,8 +11,14 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
+  resources :favorite_pins, only: [:create, :destroy]
+
   resources :users
+
   resources :sessions, only: [:new, :create, :destroy]
+
+  get "favorites" => "pins#favorites"
 
   root  'pins#index'
   #root  'static_pages#home'

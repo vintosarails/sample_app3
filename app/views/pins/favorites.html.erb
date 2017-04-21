@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row" id="pin_show">
+		<div class="col-md-1">
+			
+		</div>
+		<div class="col-md-11">
+		<h3 class="user_show">Избранные идеи (<%= current_user.favorite_pins.count %>)</h3>
+        	<%= render @pins %>
+		</div>
+	</div>
+</div>

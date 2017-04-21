@@ -63,6 +63,10 @@ class PinsController < ApplicationController
 		redirect_to :back
 	end
 
+	def favorites
+    	@pins = current_user.favorite_pins
+  	end
+
 	private
 
 	def pin_params
