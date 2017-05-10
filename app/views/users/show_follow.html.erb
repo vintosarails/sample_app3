@@ -1,0 +1,38 @@
+<% provide(:title, @title) %>
+<div class="container">
+  <div class="row" id="pin_show">
+    <div class="col-md-3">
+      <div class="gravatar_1"><%= gravatar_for @user %></div>
+      <p class="user_name"><%= @user.name %></p>
+      <% if signed_in? %>
+        <%= link_to "Редактировать профиль", edit_user_path(current_user), class: "btn btn-default" %>
+        <%= render 'shared/stats' %>
+      <% end %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          <% @users.each do |user| %>
+            <%= link_to gravatar_for(user, size: 30), user %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <h3><%= @title %></h3>
+      <% if @users.any? %>
+        <ul class="users">
+          <% @users.each do |user| %>
+        <li>
+          <%= gravatar_for user, size: 52 %>
+          <%= link_to user.name, user %>
+          <% if current_user.admin? && !current_user?(user) %>
+          | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      <% end %>
+        </li>
+      <% end %>
+        </ul>
+      <%= will_paginate :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
+      <% end %>
+    </div>   
+  </div>
+</div>

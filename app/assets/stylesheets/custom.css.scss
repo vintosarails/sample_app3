@@ -343,6 +343,33 @@ footer {
   }
 }
 
+/* sidebar */
+.btn-large{
+  width: 185px;
+}
+.stats {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: #1ea2ee;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
 //Профиль
 .profile{
   font-size: 25px;
@@ -427,4 +454,75 @@ footer {
   margin-top: 10px;
   min-height: 50px;
   max-width: 750px;
+}
+
+//контакты
+.img-rounded{
+  width: 40%;
+}
+.container{
+  ol{
+    padding: 0;
+    margin-top: 30px;
+    background:none;
+    li.bread{
+      color: #999;
+    }
+  }
+  .row{
+    .col-sm-8{
+      .p-header{
+        padding-bottom: 9px;
+        margin: 40px 0px 20px;
+        border-bottom: 1px solid #C0C0C0;
+          h3.title_ps{
+            font-size: 20px;
+            text-align: left;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            font-weight: 300;
+          }
+      }
+      .info{
+
+      }
+    }
+    .col-sm-4{
+      
+    }
+  }  
+}
+
+//помощь
+/* скрываем чекбоксы и блоки с содержанием */
+.hide {
+    display: none; 
+}
+.hide + label ~ div{
+    display: none;
+}
+/* оформляем текст label */
+.hide + label {
+    border-bottom: 1px dotted black;
+    padding: 0;
+    color: black;
+    cursor: pointer;
+    display: inline-block; 
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: #1ea2ee;
+    border-bottom: 0;
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block; 
+    background: #efefef;
+
+    padding: 10px; 
+}
+
+/* demo контейнер */
+.demo {
+    margin: 5% 10%;
 }

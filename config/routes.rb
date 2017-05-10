@@ -14,9 +14,14 @@ Rails.application.routes.draw do
 
   resources :favorite_pins, only: [:create, :destroy]
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   get "favorites" => "pins#favorites"
 

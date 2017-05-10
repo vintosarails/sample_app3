@@ -1,0 +1,4 @@
+$('.like').removeClass('loading');
+ //updated the below lines in both upvote.js.erb and downvote.js.erb
+$('.like_number').html('<%= @pin.get_upvotes.size %>');
+$('.unlike_number').html('<%= @pin.get_downvotes.size %>');

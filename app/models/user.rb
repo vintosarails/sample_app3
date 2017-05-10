@@ -1,5 +1,13 @@
 class User < ActiveRecord::Base
   has_many :pins
+
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name:  "Relationship",
+                                   dependent:   :destroy 
+  has_many :followers, through: :reverse_relationships, source: :follower
+  
   has_many :favorites
   has_many :favorite_pins, through: :favorites, source: :favorited, source_type: 'Pin'
 
@@ -12,6 +20,18 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }  
 
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy!
+  end
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -21,7 +41,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end               
